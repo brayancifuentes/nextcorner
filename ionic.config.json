@@ -1,0 +1,7 @@
+{
+  "name": "NextCorner",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
