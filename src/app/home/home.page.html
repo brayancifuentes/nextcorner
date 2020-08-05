@@ -5,19 +5,28 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
+<ion-navbar [atttr.no-border-bottom]="showToolbar ? '' :null"></ion-navbar>
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
-  <ion-searchbar [(ngModel)]="searchTerm"(ionChange)="setFilteredItems()"></ion-searchbar>
+  <ion-toolbar *ng="showToolbar" no-border-top>
+    <ion-segment [(ngModel)]="segment" primary>
+      <ion-segment-button value="1">Segment 1</ion-segment-button>
+      <ion-segment-button value="2">Segment 2</ion-segment-button>
+      
   <ion-list>
     <ion-item *ngFor="let item of items">
       {{ item.title }}
     </ion-item>
   </ion-list>
+  </ion-segment>
+  
+  
+  </ion-toolbar>
+  </ion-header>
+  <ion-searchbar [(ngModel)]="searchTerm"(ionChange)="setFilteredItems()"></ion-searchbar>
     <div id="map_canvas"></div>
 </ion-content>
 
@@ -30,15 +39,58 @@
 
    <ion-card>
       <ion-card-header>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-        <ion-card-title>Card Title</ion-card-title>
+        <ion-card-title>Anthony's Fruit</ion-card-title>
+        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
       </ion-card-header>
     
       <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
+        Address: 123 Apple Ave, Los Angeles CA
       </ion-card-content>
     </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>LA Hotdogs</ion-card-title>
+        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+      </ion-card-header>
     
+      <ion-card-content>
+        Address: 321 Banana Ave, Los Angeles CA
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Marcos Corn</ion-card-title>
+        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Address: 938 Ruiz, Los Angeles CA
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Maria Taco Stand</ion-card-title>
+        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Address: 904 Yuuki Ave, Los Angeles 
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title> Ivan's Tacos</ion-card-title>
+        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+      </ion-card-header>
+    
+      <ion-card-content>
+        Address: 439 Flower Ave, Los Angeles CA
+      </ion-card-content>
+    </ion-card>
+
   </ion-content>
-  </lib-ionic-pullup>
+</lib-ionic-pullup>

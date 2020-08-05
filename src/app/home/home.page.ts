@@ -39,6 +39,8 @@ export class HomePage implements OnInit {
     private platform: Platform,
     public navCtrl: NavController
     ) { this.footerState = IonPullUpFooterState.Collapsed; }
+    
+    
 
   ngOnInit() {
     // Since ngOnInit() is executed before `deviceready` event,
