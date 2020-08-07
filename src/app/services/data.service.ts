@@ -34,8 +34,9 @@ ionViewWillEnter() {
   
   
   filterItems(searchTerm) {
-    return this.items.filter(item => {
+    return this.items.filter(item  => {
       return item.title.toLowerCase().indexOf(searchTerm.toLowerCase()) > -1;
+      this.showToolbar = true;
     });
   }
 }

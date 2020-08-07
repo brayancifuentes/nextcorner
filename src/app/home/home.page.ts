@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { DataService } from "../services/data.service";
 
+
 import { IonPullUpFooterState } from 'ionic-pullup';
 import {
   ToastController,
@@ -24,11 +25,10 @@ import {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-
   map: GoogleMap;
   address:string;
   public searchTerm: string = "";
-  public items: any;
+  public items: any =[];
 
   footerState: IonPullUpFooterState;
 
@@ -38,8 +38,21 @@ export class HomePage implements OnInit {
     public toastCtrl: ToastController,
     private platform: Platform,
     public navCtrl: NavController
-    ) { this.footerState = IonPullUpFooterState.Collapsed; }
+    ) { this.footerState = IonPullUpFooterState.Collapsed; 
+      this.items = [
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false },
+        { expanded: false }
+      ];
+    }
     
+
     
 
   ngOnInit() {
@@ -61,6 +74,7 @@ export class HomePage implements OnInit {
       //   tilt: 30
       // }
     });
+    
     this.goToMyLocation();
   }
 
@@ -81,14 +95,26 @@ export class HomePage implements OnInit {
 
       //add a marker
       let marker: Marker = this.map.addMarkerSync({
-        title: 'hi',
-        snippet: 'This plugin is awesome!',
+        //title: 'hi',
+        //snippet: 'This plugin is awesome!',
         position: location.latLng,
         animation: GoogleMapsAnimation.BOUNCE
       });
 
+      let marker2: Marker= this.map.addMarkerSync({
+        icon: 'blue',
+        animation: GoogleMapsAnimation.BOUNCE,
+        position:{
+          lat: 34.993370,
+          lng: -119.273770,   
+          
+        }
+
+
+
+      });
       //show the infoWindow
-      marker.showInfoWindow();
+      //marker.showInfoWindow();
 
       
 
@@ -125,5 +151,22 @@ export class HomePage implements OnInit {
           setFilteredItems() {
             this.items = this.dataService.filterItems(this.searchTerm);
           }
+
+          expandItem(item): void {
+            if (item.expanded) {
+              item.expanded = false;
+            } else {
+              this.items.map(listItem => {
+                if (item == listItem) {
+                  listItem.expanded = !listItem.expanded;
+                } else {
+                  listItem.expanded = false;
+                }
+                return listItem;
+              });
+            }
+          }
+
+          
       
 }

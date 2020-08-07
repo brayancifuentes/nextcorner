@@ -13,20 +13,18 @@
     </ion-toolbar>
   <ion-toolbar *ng="showToolbar" no-border-top>
     <ion-segment [(ngModel)]="segment" primary>
-      <ion-segment-button value="1">Segment 1</ion-segment-button>
-      <ion-segment-button value="2">Segment 2</ion-segment-button>
       
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      {{ item.title }}
-    </ion-item>
-  </ion-list>
-  </ion-segment>
-  
-  
+      <ion-list>
+        <ion-item *ngFor="let item of items">
+          {{ item.title }}
+        </ion-item>
+      </ion-list>
+    </ion-segment>
+    <ion-searchbar [(ngModel)]="searchTerm"(ionChange)="setFilteredItems()"></ion-searchbar>
+    
   </ion-toolbar>
   </ion-header>
-  <ion-searchbar [(ngModel)]="searchTerm"(ionChange)="setFilteredItems()"></ion-searchbar>
+
     <div id="map_canvas"></div>
 </ion-content>
 
@@ -37,25 +35,32 @@
   </ion-toolbar>
   <ion-content>  
 
-   <ion-card>
+   <ion-card (click)="expandItem(item)" *ngFor="let item of items">
       <ion-card-header>
         <ion-card-title>Anthony's Fruit</ion-card-title>
-        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+        
       </ion-card-header>
     
       <ion-card-content>
-        Address: 123 Apple Ave, Los Angeles CA
-      </ion-card-content>
+        <app-expandable expandHeight="100px" [expanded]="item.expanded">
+          Address: 123 Apple Ave, Los Angeles CA
+        </app-expandable>
+        </ion-card-content>
     </ion-card>
 
-    <ion-card>
+    <ion-card (click)="expandItem(item)" *ngFor="let item of items">
       <ion-card-header>
         <ion-card-title>LA Hotdogs</ion-card-title>
-        <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+      
       </ion-card-header>
     
       <ion-card-content>
-        Address: 321 Banana Ave, Los Angeles CA
+        
+        <app-expandable expandHeight="100px" [expanded]="item.expanded">
+          Address: 321 Banana Ave, Los Angeles CA
+          <ion-card-subtitle>Contact Info: (123)-456-7890</ion-card-subtitle>
+        </app-expandable>
+        
       </ion-card-content>
     </ion-card>
 
@@ -91,6 +96,8 @@
         Address: 439 Flower Ave, Los Angeles CA
       </ion-card-content>
     </ion-card>
+
+    
 
   </ion-content>
 </lib-ionic-pullup>
