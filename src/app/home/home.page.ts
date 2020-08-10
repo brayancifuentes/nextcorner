@@ -165,7 +165,14 @@ export class HomePage implements OnInit {
                 return listItem;
               });
             }
+          
+            
           }
+          resetChanges(){
+            var closeOut = document.getElementById('searchOut');
+            closeOut.style.display = 'none';
+          }
+
 
           
       
