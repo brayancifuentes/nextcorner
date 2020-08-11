@@ -13,12 +13,12 @@ export class DataService {
 
     this.items = [
   
-      { title: "one" },
-      { title: "two" },
-      { title: "three" },
-      { title: "four" },
-      { title: "five" },
-      { title: "six" }
+      { title: "Anthony's Fruit" },
+      { title: "LA Hotdogs" },
+      { title: "Marcos Corn" },
+      { title: "Maria Tacos Stand" },
+      { title: "Ivan's Tacos" },
+      { title: "Mary's Ice Cream " }
     ];
   }
   

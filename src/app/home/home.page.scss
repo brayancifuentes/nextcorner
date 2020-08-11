@@ -5,7 +5,7 @@
 
 #searchbar {
   background: #FFF !important;
-  border-radius: 20px !important;
+  border-radius: 30px !important;
   height: 40px !important;
   max-width: 400px;
   font-size: 1.25em !important;
@@ -20,6 +20,21 @@
 .text{
   color: black;
 }
-#pullup {
-  background: #00FFFF;
+
+.mainBack{
+  --ion-background-color:white;
+}
+.secondMain{
+ background-color: #55D6FF;
+ margin-left: 10px;
+ margin-right: 10px;
+ margin-top: 10px;
+ border-radius: 25px;
+}
+.backColor{
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin: auto;
+  width: 95%;
+  text-align: center;
 }

@@ -28,7 +28,10 @@ export class HomePage implements OnInit {
   map: GoogleMap;
   address:string;
   public searchTerm: string = "";
+  //profiles 
   public items: any =[];
+  //search bar 
+  public profilelist: any;
 
   footerState: IonPullUpFooterState;
 
@@ -40,15 +43,18 @@ export class HomePage implements OnInit {
     public navCtrl: NavController
     ) { this.footerState = IonPullUpFooterState.Collapsed; 
       this.items = [
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false },
-        { expanded: false }
+        { 
+          expanded:false ,
+          title1:"",
+          content1:"",
+      },
+        { 
+          expanded: false,
+          title2:"",
+          content2: "",
+          contact2: "",
+        
+        },
       ];
     }
     
@@ -105,10 +111,11 @@ export class HomePage implements OnInit {
         icon: 'blue',
         animation: GoogleMapsAnimation.BOUNCE,
         position:{
-          lat: 34.993370,
-          lng: -119.273770,   
-          
+          lat: 34.052235,
+          lng: -118.243683,
         }
+
+        
 
 
 
@@ -149,7 +156,7 @@ export class HomePage implements OnInit {
             this.footerState = this.footerState == IonPullUpFooterState.Collapsed ? IonPullUpFooterState.Expanded : IonPullUpFooterState.Collapsed;
           }
           setFilteredItems() {
-            this.items = this.dataService.filterItems(this.searchTerm);
+            this.profilelist = this.dataService.filterItems(this.searchTerm);
           }
 
           expandItem(item): void {
